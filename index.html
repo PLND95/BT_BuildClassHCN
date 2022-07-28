@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="1200" height="500" style="border:1px solid #000000">
+    </canvas>
+    <p id="result"></p>
+</body>
+
+</html>
+<script>
+    class Rect {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+        }
+        calArea() {
+            return this.x * this.y;
+        }
+        calCV() {
+            return 2 * (this.x + this.y);
+        }
+    }
+    let a = +prompt("nhap chieu dai hcn");
+    let b = +prompt("nhap chieu cao hcn");
+    let hcn = new Rect(a, b);
+    let area = hcn.calArea();
+    let cv = hcn.calCV();
+    document.getElementById("result").innerHTML = "Dien tich hcn: " + area + "m2" + "<br>"
+        + " Chu vi hcn la: " + cv + "m"
+    let canvas = document.getElementById("myCanvas");
+    let ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#FF0000";
+    ctx.fillRect(400, 150, hcn.x, hcn.y);    
+</script>
